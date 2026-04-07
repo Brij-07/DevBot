@@ -2,12 +2,10 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DevBot | Coding Assistant</title>
+<title>DevBot AI</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,51 +14,40 @@
 
 <body>
 
-
 <div class="chat-container">
 
-
 <div class="chat-header">
-
-<h1>💻 DevBot</h1>
-
-<p>Ask coding questions from the question bank below</p>
-
+DevBot AI
+<p class="subtitle">Ask coding questions from the question bank below</p>
 </div>
 
 
-
-<div class="notice">
-
+<div class="info">
 ⚠ DevBot only answers questions from the predefined question bank.
-Use the buttons below or type the exact question.
-
 </div>
-
 
 
 <div id="chat-box" class="chat-box"></div>
 
 
-
 <div class="input-area">
 
 <input
-type="text"
 id="user-input"
-placeholder="Ask question exactly as shown below"
->
+placeholder="Ask question exactly as shown below..."
+autocomplete="off"
+/>
 
 <button onclick="sendMessage()">Send</button>
 
 </div>
 
 
+<div class="question-bank">
 
-<div class="suggestions">
+<h3>Question Bank</h3>
 
-<p>Question Bank:</p>
-
+<div class="buttons">
 
 <button onclick="quickAsk('what is html')">What is HTML</button>
 
@@ -68,13 +55,13 @@ placeholder="Ask question exactly as shown below"
 
 <button onclick="quickAsk('what is css')">What is CSS</button>
 
-<button onclick="quickAsk('css center div')">Center div CSS</button>
+<button onclick="quickAsk('center div css')">Center div CSS</button>
 
 <button onclick="quickAsk('what is javascript')">What is JavaScript</button>
 
-<button onclick="quickAsk('javascript for loop')">JS for loop</button>
+<button onclick="quickAsk('js for loop')">JS for loop</button>
 
-<button onclick="quickAsk('let vs var vs const')">let vs const vs var</button>
+<button onclick="quickAsk('let vs const vs var')">let vs const vs var</button>
 
 <button onclick="quickAsk('what is dom')">What is DOM</button>
 
@@ -96,7 +83,7 @@ placeholder="Ask question exactly as shown below"
 
 <button onclick="quickAsk('what is json')">What is JSON</button>
 
-<button onclick="quickAsk('difference between frontend and backend')">Frontend vs Backend</button>
+<button onclick="quickAsk('frontend vs backend')">Frontend vs Backend</button>
 
 <button onclick="quickAsk('what is database')">What is database</button>
 
@@ -106,13 +93,12 @@ placeholder="Ask question exactly as shown below"
 
 </div>
 
-
 </div>
 
 
+</div>
 
 <script src="script.js"></script>
-
 
 </body>
 
