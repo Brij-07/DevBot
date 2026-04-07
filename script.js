@@ -1,4 +1,4 @@
-const API_KEY="AIzaSyDjvDDP-uJlRuEdh9BlYtkLhnnaP1dLpf0";
+const API_KEY="AIzaSyBXoJT8UkLDGEDFKDK46SumXDnE34xicfo";
 const chatBox=document.getElementById("chat-box");
 const input=document.getElementById("user-input");
 const button=document.getElementById("send-btn");
