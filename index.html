@@ -1,33 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevBot AI | Coding Assistant</title>
+
+<title>DevBot | Coding Assistant</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
+
+
 <div class="chat-container">
-    <div class="chat-header">
-        <div class="brand">
-            <span class="icon">💻</span>
-            <div>
-                <strong>DevBot AI</strong>
-                <small>Coding Expert</small>
-            </div>
-        </div>
-    </div>
-    <div id="chat-box" class="chat-box">
-        <div class="message bot">
-Hello 👋 I can help with debugging, coding, and explanations.
-Ask me anything!
-        </div>
-    </div>
-    <div class="chat-input-area">
-        <textarea id="user-input" placeholder="Ask coding question..." rows="1"></textarea>
-        <button id="send-btn">Run</button>
-    </div>
+
+
+<div class="chat-header">
+
+<h1>💻 DevBot</h1>
+
+<p>Ask coding questions from the question bank below</p>
+
 </div>
+
+
+
+<div class="notice">
+
+⚠ DevBot only answers questions from the predefined question bank.
+Use the buttons below or type the exact question.
+
+</div>
+
+
+
+<div id="chat-box" class="chat-box"></div>
+
+
+
+<div class="input-area">
+
+<input
+type="text"
+id="user-input"
+placeholder="Ask question exactly as shown below"
+>
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+
+
+<div class="suggestions">
+
+<p>Question Bank:</p>
+
+
+<button onclick="quickAsk('what is html')">What is HTML</button>
+
+<button onclick="quickAsk('html tags list')">HTML tags list</button>
+
+<button onclick="quickAsk('what is css')">What is CSS</button>
+
+<button onclick="quickAsk('css center div')">Center div CSS</button>
+
+<button onclick="quickAsk('what is javascript')">What is JavaScript</button>
+
+<button onclick="quickAsk('javascript for loop')">JS for loop</button>
+
+<button onclick="quickAsk('let vs var vs const')">let vs const vs var</button>
+
+<button onclick="quickAsk('what is dom')">What is DOM</button>
+
+<button onclick="quickAsk('python for loop')">Python for loop</button>
+
+<button onclick="quickAsk('python function')">Python function</button>
+
+<button onclick="quickAsk('python list')">Python list</button>
+
+<button onclick="quickAsk('python dictionary')">Python dictionary</button>
+
+<button onclick="quickAsk('what is git')">What is Git</button>
+
+<button onclick="quickAsk('git push')">Git push</button>
+
+<button onclick="quickAsk('git pull')">Git pull</button>
+
+<button onclick="quickAsk('what is api')">What is API</button>
+
+<button onclick="quickAsk('what is json')">What is JSON</button>
+
+<button onclick="quickAsk('difference between frontend and backend')">Frontend vs Backend</button>
+
+<button onclick="quickAsk('what is database')">What is database</button>
+
+<button onclick="quickAsk('what is algorithm')">What is algorithm</button>
+
+<button onclick="quickAsk('what is debugging')">What is debugging</button>
+
+</div>
+
+
+</div>
+
+
+
 <script src="script.js"></script>
+
+
 </body>
+
 </html>
