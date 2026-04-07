@@ -1,134 +1,141 @@
 const chatBox=document.getElementById("chat-box");
-const input=document.getElementById("user-input");
-const button=document.getElementById("send-btn");
 
-function addMessage(text,sender){
-const msg=document.createElement("div");
-msg.className="message "+sender;
-msg.innerHTML=formatResponse(text);
-chatBox.appendChild(msg);
-chatBox.scrollTop=chatBox.scrollHeight;
-}
 
-function formatResponse(text){
-if(text.includes("```")){
-return text.replace(/```(.*?)```/gs,"<pre><code>$1</code></pre>");
-}
-return text;
-}
-
-/* KNOWLEDGE BASE */
 const responses={
 
-"hello":"Hello 👋 I am DevBot.\nAsk me coding questions.",
 
-"html":"Basic HTML:\n```html\n<h1>Hello World</h1>\n<p>This is HTML</p>\n```",
+// HTML
+"what is html":
+"HTML structures webpages using tags.\nLearn more:\nhttps://developer.mozilla.org/en-US/docs/Web/HTML",
 
-"html page":"Basic webpage:\n```html\n<!DOCTYPE html>\n<html>\n<head>\n<title>Page</title>\n</head>\n<body>\nHello\n</body>\n</html>\n```",
+"html tags list":
+"<html>\n<head>\n<body>\n<div>\n<p>\n<a>\n<img>",
 
-"css":"Basic CSS:\n```css\nbody{\n background:black;\n color:white;\n}\n```",
 
-"center div":"Center div:\n```css\n.container{\n display:flex;\n justify-content:center;\n align-items:center;\n height:100vh;\n}\n```",
+// CSS
+"what is css":
+"CSS styles webpages.\nLearn more:\nhttps://developer.mozilla.org/en-US/docs/Web/CSS",
 
-"flexbox":"Flexbox example:\n```css\n.container{\n display:flex;\n gap:10px;\n}\n```",
+"css center div":
+"display:flex;\njustify-content:center;\nalign-items:center;",
 
-"grid":"CSS grid:\n```css\n.container{\n display:grid;\n grid-template-columns:1fr 1fr;\n}\n```",
 
-"javascript":"Basic JS:\n```javascript\nconsole.log('Hello World');\n```",
+// JavaScript
+"what is javascript":
+"JavaScript makes webpages interactive.",
 
-"variable":"Variables:\n```javascript\nlet name='DevBot';\nconst age=2;\n```",
+"javascript for loop":
+"for(let i=0;i<5;i++){\n console.log(i)\n}",
 
-"function":"Function:\n```javascript\nfunction greet(){\n return 'Hello';\n}\n```",
+"let vs var vs const":
+"let = changeable\nconst = fixed\nvar = old",
 
-"arrow function":"Arrow function:\n```javascript\nconst greet=()=> 'Hello';\n```",
+"what is dom":
+"DOM lets JavaScript access HTML.",
 
-"if":"If condition:\n```javascript\nif(x>10){\n console.log('Big');\n}\n```",
 
-"loop":"For loop:\n```javascript\nfor(let i=0;i<5;i++){\n console.log(i);\n}\n```",
+// Python
+"python for loop":
+"for i in range(5):\n print(i)",
 
-"while loop":"While loop:\n```javascript\nlet i=0;\nwhile(i<5){\n i++;\n}\n```",
+"python function":
+"def greet():\n print('hello')",
 
-"array":"Array:\n```javascript\nconst arr=[1,2,3];\nconsole.log(arr[0]);\n```",
+"python list":
+"[1,2,3]",
 
-"object":"Object:\n```javascript\nconst user={\n name:'John',\n age:20\n};\n```",
+"python dictionary":
+"{'name':'John'}",
 
-"map":"Array map:\n```javascript\narr.map(x=>x*2);\n```",
 
-"filter":"Array filter:\n```javascript\narr.filter(x=>x>5);\n```",
+// Git
+"what is git":
+"Git tracks code changes.",
 
-"event listener":"Event listener:\n```javascript\nbutton.addEventListener('click',()=>{\n alert('Clicked');\n});\n```",
+"git push":
+"git push origin main",
 
-"fetch":"Fetch API:\n```javascript\nfetch(url)\n.then(r=>r.json())\n.then(data=>console.log(data));\n```",
+"git pull":
+"git pull origin main",
 
-"promise":"Promise:\n```javascript\nnew Promise(resolve=>resolve('done'));\n```",
 
-"async":"Async function:\n```javascript\nasync function load(){\n return 5;\n}\n```",
+// Concepts
+"what is api":
+"API allows software communication.",
 
-"dom":"DOM select:\n```javascript\ndocument.getElementById('id');\n```",
+"what is json":
+"{name:'John'}",
 
-"python":"Python basic:\n```python\nprint('Hello')\n```",
+"difference between frontend and backend":
+"Frontend = UI\nBackend = logic",
 
-"python function":"Python function:\n```python\ndef greet():\n return 'Hello'\n```",
+"what is database":
+"Database stores information.",
 
-"python loop":"Python loop:\n```python\nfor i in range(5):\n print(i)\n```",
+"what is algorithm":
+"Step-by-step solution.",
 
-"list":"Python list:\n```python\nnums=[1,2,3]\n```",
-
-"dictionary":"Python dictionary:\n```python\nuser={'name':'john'}\n```",
-
-"git":"Git init:\n```bash\ngit init\n```",
-
-"git commit":"Git commit:\n```bash\ngit add .\ngit commit -m 'update'\n```",
-
-"git push":"Git push:\n```bash\ngit push origin main\n```",
-
-"debug":"Debug tip:\nUse console.log() to inspect values.",
-
-"error":"Common fix:\nCheck spelling and console errors.",
-
-"responsive":"Responsive meta:\n```html\n<meta name='viewport' content='width=device-width, initial-scale=1'>\n```",
-
-"api":"API call:\n```javascript\nfetch('/api/data');\n```",
-
-"json":"JSON example:\n```json\n{\n \"name\":\"John\"\n}\n```",
-
-"react":"React component:\n```javascript\nfunction App(){\n return <h1>Hello</h1>;\n}\n```",
-
-"node":"Node server:\n```javascript\nconst http=require('http');\n```",
-
-"express":"Express server:\n```javascript\napp.get('/',(req,res)=>res.send('Hi'));\n```",
-
-"algorithm":"Algorithm example:\n```javascript\narr.sort((a,b)=>a-b);\n```",
-
-"binary search":"Binary search:\n```javascript\nfunction search(arr,x){\n let l=0,r=arr.length-1;\n}\n```"
+"what is debugging":
+"Fixing code errors."
 
 };
-function getBotReply(question){
-const q=question.toLowerCase();
-for(let key in responses){
-if(q.includes(key)){
-return responses[key];
+
+
+
+function addMessage(text,sender){
+
+const msg=document.createElement("div");
+
+msg.className="message "+sender;
+
+msg.innerText=text;
+
+chatBox.appendChild(msg);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
 }
+
+
+
+function sendMessage(){
+
+const input=document.getElementById("user-input");
+
+const question=input.value.toLowerCase().trim();
+
+
+addMessage(input.value,"user");
+
+
+if(responses[question]){
+
+addMessage(responses[question],"bot");
+
 }
-return "I don't know that yet 🤖\nTry asking about:\nhtml, css, javascript, python, git, react, api";
+else{
+
+addMessage(
+
+"❌ Please ask a question from the question bank below.\nDevBot only answers predefined questions.",
+
+"bot"
+
+);
+
 }
-function handleChat(){
-const text=input.value.trim();
-if(!text) return;
-addMessage(text,"user");
+
+
 input.value="";
-const loading=document.createElement("div");
-loading.className="message bot";
-loading.innerText="Typing...";
-chatBox.appendChild(loading);
-setTimeout(()=>{
-loading.innerHTML=formatResponse(getBotReply(text));
-},400);
+
 }
-button.onclick=handleChat;
-input.addEventListener("keydown",e=>{
-if(e.key==="Enter"&&!e.shiftKey){
-e.preventDefault();
-handleChat();
+
+
+
+function quickAsk(q){
+
+document.getElementById("user-input").value=q;
+
+sendMessage();
+
 }
-});
